@@ -3,10 +3,35 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ControllerTestNX"
+        xmlns:models="clr-namespace:WpfApp1.Models"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FFEBEBEB">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="30" HorizontalAlignment="Center"
+                   Text="The symbol for the button you press will appear here." />
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
+            <TextBlock Text="FirstName" FontSize="30" HorizontalAlignment="Center" />
+        </StackPanel>
+
+        <ItemsControl x:Name="DataAccess" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="models:ButtonModel">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Button}" FontSize="30" />
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
     </Grid>
 </Window>
