@@ -3,80 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" MinHeight="450" MinWidth="800"
-        Title="ControllerTestNX" Height="450" Width="800" KeyDown="Window_KeyDown">
-    <Window.Resources>
-        <SolidColorBrush x:Key="KeyBackground" Color="#FFEBEBEB" />
-        <SolidColorBrush x:Key="TextForeground" Color="#2E2E2E" />
-        <SolidColorBrush x:Key="GreyDetails" Color="#909090" />
-        <SolidColorBrush x:Key="UnderlineBlue" Color="#3050F1" />
-        <Style x:Key="RoundedButton" TargetType="{x:Type Button}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="border" CornerRadius="3" Background="{TemplateBinding Background}"
-                                BorderThickness="1"
-                                BorderBrush="{StaticResource TextForeground}">
-                            <ContentPresenter x:Name="contentPresenter" Focusable="False"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              Margin="{TemplateBinding Padding}" RecognizesAccessKey="True"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border"
-                                        Value="{StaticResource TextForeground}" />
-                                <Setter Property="TextElement.Foreground" TargetName="border"
-                                        Value="{StaticResource KeyBackground}" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-    <Grid Background="{StaticResource KeyBackground}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="5" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.Row="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                   Text="The symbol for the button you press will appear here."
-                   Foreground="{StaticResource TextForeground}" />
-        <TabPanel Grid.Column="0" Grid.Row="1" Width="700" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                  Margin="5">
-            <StackPanel x:Name="ButtonsStack" Orientation="Horizontal" HorizontalAlignment="Left">
-                <d:Border BorderBrush="{StaticResource TextForeground}" BorderThickness="1" Margin="0 0 5 0"
-                          Padding="5">
-                    <d:TextBlock Text="A" FontSize="20" />
-                </d:Border>
-            </StackPanel>
-        </TabPanel>
-        <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" FontSize="30" HorizontalAlignment="Center"
-                   VerticalAlignment="Bottom"
-                   Text="_________________________________________________________"
-                   Foreground="{StaticResource UnderlineBlue}" />
-        <TextBlock Grid.Column="0" Grid.Row="3" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top"
-                   TextWrapping="WrapWithOverflow"
-                   Width="500" Foreground="{StaticResource GreyDetails}" TextAlignment="Center"
-                   Text="♦ The ⌂ (Home Button), ◙ (Capture Button), POWER Button and SYNC Button cannot be checked" />
+        xmlns:local="clr-namespace:ControllerTestNX"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
 
-        <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="top">
-            <Button Style="{DynamicResource RoundedButton}" FontSize="20" HorizontalAlignment="Center"
-                    Background="Transparent" Content="End" Padding="130 10" Click="Button_Click" />
-        </StackPanel>
-        <TextBlock x:Name="PressTimesToExitText" Grid.Column="0" Grid.Row="5" FontSize="20"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top"
-                   d:Text="Press any button X times to end the test."
-                   Foreground="{StaticResource TextForeground}" />
     </Grid>
 </Window>
