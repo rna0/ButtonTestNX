@@ -190,3 +190,7 @@ git_stats/*
 StyleCop.Cache
 bin
 obj
+
+_NCrunch*
+.idea
+.vs
