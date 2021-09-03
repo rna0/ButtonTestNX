@@ -30,6 +30,11 @@ namespace ControllerTestNX
             };
             keyBorder.Child = singleButtonPress;
             ButtonsStack.Children.Add(keyBorder);
+
+            while (ButtonsStack.ActualWidth > 670 && ButtonsStack.Children.Count > 0)
+			{
+                    ButtonsStack.Children.RemoveAt(0);
+			}
         }
     }
 }
