@@ -1,4 +1,4 @@
-﻿namespace WpfApp1.Models
+﻿namespace ControllerTestNx.Models
 {
     public enum Button
     {

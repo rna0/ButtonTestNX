@@ -10,23 +10,25 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-			<RowDefinition Height="2*" />
-			<RowDefinition Height="2*" />
-			<RowDefinition Height="5" />
-			<RowDefinition Height="*" />
-			<RowDefinition Height="*" />
-			<RowDefinition Height="*" />
-		</Grid.RowDefinitions>
-		<TextBlock Grid.Column="0" Grid.Row="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="0" Grid.Row="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom"
                    Text="The symbol for the button you press will appear here." />
-		<TabPanel  Grid.Column="0" Grid.Row="1" Width="700" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5">
-				<StackPanel x:Name="ButtonsStack" Orientation="Horizontal" HorizontalAlignment="Left">
-					<d:Border BorderBrush="Black" BorderThickness="1" Margin="0 0 9 0" Padding="5">
-						<d:TextBlock Text="A" FontSize="20"/>
-					</d:Border>
-				</StackPanel>
-		</TabPanel>
-		<TextBlock Grid.Column="0" Grid.Row="2" FontSize="30"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#3050F1" 
-				   Text="_________________________________________________________"/>
-	</Grid>
+        <TabPanel Grid.Column="0" Grid.Row="1" Width="700" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                  Margin="5">
+            <StackPanel x:Name="ButtonsStack" Orientation="Horizontal" HorizontalAlignment="Left">
+                <d:Border BorderBrush="Black" BorderThickness="1" Margin="0 0 9 0" Padding="5">
+                    <d:TextBlock Text="A" FontSize="20" />
+                </d:Border>
+            </StackPanel>
+        </TabPanel>
+        <TextBlock Grid.Column="0" Grid.Row="2" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   Foreground="#3050F1"
+                   Text="_________________________________________________________" />
+    </Grid>
 </Window>

@@ -1,4 +1,6 @@
-﻿namespace WpfApp1.Models
+﻿using ControllerTestNx.Models;
+
+namespace ControllerTestNX.Models
 {
     public class ButtonModel
     {
