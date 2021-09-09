@@ -29,11 +29,11 @@ namespace ControllerTestNX
                 Margin = new Thickness(5)
             };
             keyBorder.Child = singleButtonPress;
-            ButtonsStack.Children.Add(keyBorder);
+            ButtonsStack.Children.Insert(0, keyBorder);
 
-            while (ButtonsStack.ActualWidth > 670 && ButtonsStack.Children.Count > 0)
+            if (ButtonsStack.Children.Count == 19)
 			{
-                    ButtonsStack.Children.RemoveAt(0);
+                    ButtonsStack.Children.RemoveAt(18);
 			}
         }
     }
