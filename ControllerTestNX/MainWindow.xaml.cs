@@ -19,7 +19,7 @@ namespace ControllerTestNX
                 BorderBrush = Brushes.Black,
                 BorderThickness = new Thickness(1),
                 Margin = new Thickness(0, 0, 5, 0),
-                Padding = new Thickness(5)
+                Padding = new Thickness(2, 0, 2, 0)
             };
             TextBlock singleButtonPress = new()
             {
@@ -30,10 +30,10 @@ namespace ControllerTestNX
             };
             keyBorder.Child = singleButtonPress;
             ButtonsStack.Children.Insert(0, keyBorder);
-
-            if (ButtonsStack.Children.Count == 19)
+            const int MAX_COUNT = 40;
+            if (ButtonsStack.Children.Count == MAX_COUNT)
 			{
-                    ButtonsStack.Children.RemoveAt(18);
+                    ButtonsStack.Children.RemoveAt(MAX_COUNT - 1);
 			}
         }
     }

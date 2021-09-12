@@ -11,24 +11,31 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" />
-            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="5" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="0" Grid.Row="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                   Text="The symbol for the button you press will appear here." />
+                   Text="The symbol for the button you press will appear here." Foreground="#2E2E2E" />
         <TabPanel Grid.Column="0" Grid.Row="1" Width="700" HorizontalAlignment="Center" VerticalAlignment="Bottom"
                   Margin="5">
             <StackPanel x:Name="ButtonsStack" Orientation="Horizontal" HorizontalAlignment="Left">
-                <d:Border BorderBrush="Black" BorderThickness="1" Margin="0 0 9 0" Padding="5">
+                <d:Border BorderBrush="Black" BorderThickness="1" Margin="0 0 5 0" Padding="5">
                     <d:TextBlock Text="A" FontSize="20" />
                 </d:Border>
             </StackPanel>
         </TabPanel>
-        <TextBlock Grid.Column="0" Grid.Row="2" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                   Foreground="#3050F1"
-                   Text="_________________________________________________________" />
-    </Grid>
+		<TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   Text="_________________________________________________________" Foreground="#3050F1"/>
+		<TextBlock Grid.Column="0" Grid.Row="3" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="WrapWithOverflow"
+				   Width="370" Foreground="#909090" TextAlignment="Center"
+                   Text="♦ The ⌂ (Home Button), ◙ (Capture Button), POWER Button and SYNC Button cannot be checked"/>
+
+		<!--<Border Grid.Column="0" Grid.Row="4" BorderBrush="Black" BorderThickness="1" Margin="0 0 5 0" Padding="5">
+			<TextBlock FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"
+				   Foreground="#2E2E2E" Text="End"/>
+		</Border>-->
+	</Grid>
 </Window>
