@@ -36,7 +36,7 @@ namespace ControllerTestNX
         {
             PressTimesToExitText.Text = $"Press any button {TIMES_PRESS_TO_EXIT} times to end the test.";
         }
-        
+
         private void CreateKeyTextComponent(string currentKey)
         {
             Border keyBorder = new()
