@@ -1,11 +1,12 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
 namespace ControllerTestNX
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         public MainWindow()
         {
@@ -30,11 +31,16 @@ namespace ControllerTestNX
             };
             keyBorder.Child = singleButtonPress;
             ButtonsStack.Children.Insert(0, keyBorder);
-            const int MAX_COUNT = 40;
-            if (ButtonsStack.Children.Count == MAX_COUNT)
-			{
-                    ButtonsStack.Children.RemoveAt(MAX_COUNT - 1);
-			}
+            const int maxCount = 40;
+            if (ButtonsStack.Children.Count == maxCount)
+            {
+                ButtonsStack.Children.RemoveAt(maxCount - 1);
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
