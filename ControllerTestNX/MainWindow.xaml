@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" MinHeight="450" MinWidth="800"
-        Title="MainWindow" Height="450" Width="800" KeyDown="Window_KeyDown">
+        Title="ControllerTestNX" Height="450" Width="800" KeyDown="Window_KeyDown">
     <Window.Resources>
         <SolidColorBrush x:Key="KeyBackground" Color="#FFEBEBEB" />
         <SolidColorBrush x:Key="TextForeground" Color="#2E2E2E" />
