@@ -66,12 +66,16 @@
                    Foreground="{StaticResource UnderlineBlue}" />
         <TextBlock Grid.Column="0" Grid.Row="3" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top"
                    TextWrapping="WrapWithOverflow"
-                   Width="370" Foreground="{StaticResource GreyDetails}" TextAlignment="Center"
+                   Width="500" Foreground="{StaticResource GreyDetails}" TextAlignment="Center"
                    Text="♦ The ⌂ (Home Button), ◙ (Capture Button), POWER Button and SYNC Button cannot be checked" />
 
-        <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="top">
             <Button Style="{DynamicResource RoundedButton}" FontSize="20" HorizontalAlignment="Center"
-                    Background="Transparent" Content="End" Padding="130 17" Click="Button_Click" />
+                    Background="Transparent" Content="End" Padding="130 10" Click="Button_Click" />
         </StackPanel>
+        <TextBlock x:Name="PressTimesToExitText" Grid.Column="0" Grid.Row="5" FontSize="20" HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   d:Text="Press any button X times to end the test."
+                   Foreground="{StaticResource TextForeground}" />
     </Grid>
 </Window>
