@@ -15,7 +15,7 @@
                 <SolidColorBrush x:Key="UnderlineBlue" Color="#3050F1" />
         </Window.Resources>
         <Grid Background="{StaticResource KeyBackground}" ColumnDefinitions="*" RowDefinitions="2*,*,6,*,*,*">
-                <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" FontSize="20"
+                <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" FontSize="23"
                            HorizontalAlignment="Center" VerticalAlignment="Bottom"
                            Text="The symbol for the button you press will appear here."
                            Foreground="{StaticResource TextForeground}" />
