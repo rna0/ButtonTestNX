@@ -21,7 +21,7 @@
                            Foreground="{StaticResource TextForeground}" />
                 <Panel Grid.Column="0" Grid.Row="1" Width="700" ClipToBounds="True"
                        HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5">
-                        <StackPanel Name="ButtonsStack" Orientation="Horizontal" HorizontalAlignment="Left" />
+                        <StackPanel Name="ButtonsStackPanel" Orientation="Horizontal" HorizontalAlignment="Left" />
                 </Panel>
                 <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"
                            VerticalAlignment="Bottom"
@@ -35,7 +35,7 @@
                     <Button FontSize="20" HorizontalAlignment="Center" BorderBrush="{StaticResource TextForeground}"
                             Background="Transparent" Content="End" Padding="130 10" Click="Button_Click"/>
                 </StackPanel>
-                <TextBlock Name="PressTimesToExitText" Grid.Column="0" Grid.Row="5" FontSize="20"
+                <TextBlock Name="PressTimesToExitTextBlock" Grid.Column="0" Grid.Row="5" FontSize="20"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Top"
                            Foreground="{StaticResource TextForeground}" />

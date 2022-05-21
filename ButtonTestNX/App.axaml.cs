@@ -4,7 +4,7 @@ using Avalonia.Markup.Xaml;
 
 namespace ButtonTestNX
 {
-    public class App : Application
+    public partial class App : Application
     {
         public override void Initialize()
         {

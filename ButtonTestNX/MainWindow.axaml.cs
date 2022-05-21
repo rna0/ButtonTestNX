@@ -9,7 +9,7 @@ using Avalonia.Media;
 
 namespace ButtonTestNX
 {
-    public class MainWindow : Window
+    public partial class MainWindow : Window
     {
         private const int TimesPressToExit = 5;
         private const int MaxCount = 40;
@@ -30,8 +30,8 @@ namespace ButtonTestNX
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
-            ButtonsStack = this.FindControl<StackPanel>("ButtonsStack");
-            PressTimesToExitText = this.FindControl<TextBlock>("PressTimesToExitText");
+            ButtonsStack = this.FindControl<StackPanel>("ButtonsStackPanel");
+            PressTimesToExitText = this.FindControl<TextBlock>("PressTimesToExitTextBlock");
             this.FindControl<Window>("ButtonTestWindow");
             
             FontFamily = new FontFamily("avares://ButtonTestNX/Assets/Fonts#Nintendo Switch UI");
@@ -51,7 +51,7 @@ namespace ButtonTestNX
             ExitApplication();
         }
 
-        private static void CreateKeyTextComponent(string currentKey)
+        private void CreateKeyTextComponent(string currentKey)
         {
             Border keyBorder = new()
             {
@@ -72,7 +72,7 @@ namespace ButtonTestNX
             ButtonsStack.Children.Insert(0, keyBorder);
         }
 
-        private static void RemoveKeyTextComponentLeftovers()
+        private void RemoveKeyTextComponentLeftovers()
         {
             if (ButtonsStack.Children.Count == MaxCount)
             {
