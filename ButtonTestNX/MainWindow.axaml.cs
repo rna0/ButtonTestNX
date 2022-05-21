@@ -9,17 +9,16 @@ using Avalonia.Media;
 
 namespace ButtonTestNX
 {
-    public partial class MainWindow : Window
+    public class MainWindow : Window
     {
-        private const int TIMES_PRESS_TO_EXIT = 5;
-        private const int MAX_COUNT = 40;
+        private const int TimesPressToExit = 5;
+        private const int MaxCount = 40;
         private static string OnExitButtonKey = "";
         private static int OnExitButtonCount;
         
         private static StackPanel ButtonsStack = null!;
         private static TextBlock PressTimesToExitText = null!;
-        private static Window ButtonTestWindow = null!;
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -33,10 +32,10 @@ namespace ButtonTestNX
             AvaloniaXamlLoader.Load(this);
             ButtonsStack = this.FindControl<StackPanel>("ButtonsStack");
             PressTimesToExitText = this.FindControl<TextBlock>("PressTimesToExitText");
-            ButtonTestWindow = this.FindControl<Window>("ButtonTestWindow");
+            this.FindControl<Window>("ButtonTestWindow");
             
             FontFamily = new FontFamily("avares://ButtonTestNX/Assets/Fonts#Nintendo Switch UI");
-            PressTimesToExitText.Text = $"Press any button {TIMES_PRESS_TO_EXIT} times to end the test.";
+            PressTimesToExitText.Text = $"Press any button {TimesPressToExit} times to end the test.";
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -52,7 +51,7 @@ namespace ButtonTestNX
             ExitApplication();
         }
 
-        private void CreateKeyTextComponent(string currentKey)
+        private static void CreateKeyTextComponent(string currentKey)
         {
             Border keyBorder = new()
             {
@@ -73,11 +72,11 @@ namespace ButtonTestNX
             ButtonsStack.Children.Insert(0, keyBorder);
         }
 
-        private void RemoveKeyTextComponentLeftovers()
+        private static void RemoveKeyTextComponentLeftovers()
         {
-            if (ButtonsStack.Children.Count == MAX_COUNT)
+            if (ButtonsStack.Children.Count == MaxCount)
             {
-                ButtonsStack.Children.RemoveAt(MAX_COUNT - 1);
+                ButtonsStack.Children.RemoveAt(MaxCount - 1);
             }
         }
 
@@ -88,7 +87,7 @@ namespace ButtonTestNX
                 OnExitButtonKey = currentKey;
                 OnExitButtonCount = 1;
             }
-            else if (++OnExitButtonCount == TIMES_PRESS_TO_EXIT)
+            else if (++OnExitButtonCount == TimesPressToExit)
             {
                 ExitApplication();
             }
