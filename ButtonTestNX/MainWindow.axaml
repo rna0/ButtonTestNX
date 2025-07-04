@@ -6,7 +6,8 @@
         x:Class="ButtonTestNX.MainWindow"
         KeyDown="Window_KeyDown"
         Icon="/Assets/favicon.ico"
-        Title="ButtonTestNX">
+        Title="ButtonTestNX"
+        FontFamily="Switch">
         <Window.Resources>
                 <SolidColorBrush x:Key="KeyBackground" Color="#EBEBEB" />
                 <SolidColorBrush x:Key="TextForeground" Color="#2E2E2E" />
