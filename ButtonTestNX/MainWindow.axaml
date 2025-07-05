@@ -7,7 +7,7 @@
         KeyDown="Window_KeyDown"
         Icon="/Assets/favicon.ico"
         Title="ButtonTestNX"
-        FontFamily="Switch">
+        FontFamily="avares://ButtonTestNX/Assets/Fonts#Nintendo Switch UI">
         <Window.Resources>
                 <SolidColorBrush x:Key="KeyBackground" Color="#EBEBEB" />
                 <SolidColorBrush x:Key="TextForeground" Color="#2E2E2E" />
@@ -31,7 +31,7 @@
                 <TextBlock Grid.Column="0" Grid.Row="3" FontSize="16" TextWrapping="WrapWithOverflow"
                            HorizontalAlignment="Center" VerticalAlignment="Top"
                            Width="500" Foreground="{StaticResource GreyDetails}" TextAlignment="Center"
-                           Text="♦ The ⌂ (Home Button), ◙ (Capture Button), POWER Button and SYNC Button cannot be checked" />
+                           Text="♦ The ⌂ (Home Button), ◎ (Capture Button), POWER Button and SYNC Button cannot be checked" />
                 <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <Button FontSize="20" HorizontalAlignment="Center" BorderBrush="{StaticResource TextForeground}"
                             Background="Transparent" Content="End" Padding="130 10" Click="Button_Click"/>

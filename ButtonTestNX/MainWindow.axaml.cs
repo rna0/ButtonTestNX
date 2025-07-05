@@ -45,6 +45,7 @@ public partial class MainWindow : Window
         };
         TextBlock singleButtonPress = new()
         {
+            Foreground = Brushes.Black,
             Text = currentKey,
             FontSize = 20,
             HorizontalAlignment = HorizontalAlignment.Center,
