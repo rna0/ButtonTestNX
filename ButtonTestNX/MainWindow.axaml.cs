@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Generic;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Layout;
 using Avalonia.Media;
+using Avalonia.Threading;
+using ButtonTestNX.Services;
 
 namespace ButtonTestNX;
 
@@ -12,66 +15,130 @@ public partial class MainWindow : Window
 {
     private const int TimesPressToExit = 5;
     private const int MaxCount = 40;
-    private static string OnExitButtonKey = "";
-    private static int OnExitButtonCount;
-    
+
+    // --- Services and State (now instance-based) ---
+    private readonly ControllerService _controllerService;
+    private readonly Random _random = new();
+    private readonly IReadOnlyList<Color> _playerColors;
+
+    private string _onExitButtonKey = "";
+    private int _onExitButtonCount;
+
+    // --- UI Element References ---
+    private readonly StackPanel _buttonsStack;
+    private readonly TextBlock _pressTimesToExitText;
+    private readonly TextBlock _mainTitleText;
+
     public MainWindow()
     {
         InitializeComponent();
-        PressTimesToExitTextBlock.Text = $"Press any button {TimesPressToExit} times to end the test.";
+
+        // --- Find UI Controls by Name ---
+        _buttonsStack = this.FindControl<StackPanel>("ButtonsStackPanel")!;
+        _pressTimesToExitText = this.FindControl<TextBlock>("PressTimesToExitTextBlock")!;
+        // The main title is the first child of the root Grid in your XAML.
+        _mainTitleText = (this.Content as Grid)!.Children[0] as TextBlock ?? new TextBlock();
+
+        _playerColors = new List<Color>
+        {
+            Color.Parse("#2E2E2E"),
+            Colors.DodgerBlue,
+            Colors.Crimson,
+            Colors.LimeGreen,
+            Colors.Gold,
+            Colors.DarkOrchid,
+            Colors.Orange,
+            Colors.Turquoise,
+            Colors.HotPink,
+            Colors.SlateGray,
+            Colors.Brown
+        };
+
+        _controllerService = new ControllerService();
+        _controllerService.ControllerInputReceived += OnControllerInput;
+        _controllerService.Start();
+
+        // --- Set Initial UI State ---
+        ProcessInput(0, "Keyboard");
+        _pressTimesToExitText.Text = $"Press any button {TimesPressToExit} times to end the test.";
+        _buttonsStack.Children.Clear();
     }
 
-    private void Window_KeyDown(object sender, KeyEventArgs e)
+    // Centralized input processing for both Keyboard and Controllers
+    private void ProcessInput(int playerIndex, string inputKey)
     {
-        var currentKey = e.Key.ToString();
-        ExitCheckXTimes(currentKey);
-        CreateKeyTextComponent(currentKey);
+        // 1. Determine the color for the current input source
+        var color = (playerIndex < _playerColors.Count)
+            ? _playerColors[playerIndex]
+            : Color.FromRgb((byte)_random.Next(256), (byte)_random.Next(256), (byte)_random.Next(256));
+
+        // 2. Check for exit condition
+        if (inputKey == "Keyboard") return;
+        ExitCheckXTimes(inputKey);
+        CreateKeyTextComponent(inputKey, color);
         RemoveKeyTextComponentLeftovers();
     }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
+    private void OnControllerInput(int playerIndex, string inputDescription)
+    {
+        Dispatcher.UIThread.Post(() => ProcessInput(playerIndex, inputDescription));
+    }
+
+    private void Window_KeyDown(object? sender, KeyEventArgs e)
+    {
+        ProcessInput(0, e.Key.ToString());
+    }
+
+    private void Button_Click(object? sender, RoutedEventArgs e)
     {
         ExitApplication();
     }
 
-    private void CreateKeyTextComponent(string currentKey)
+    protected override void OnClosing(WindowClosingEventArgs e)
     {
-        Border keyBorder = new()
+        _controllerService.Stop();
+        base.OnClosing(e);
+    }
+
+    private void CreateKeyTextComponent(string currentKey, Color keyColor)
+    {
+        var keyBorder = new Border
         {
-            BorderBrush = Brushes.Black,
-            BorderThickness = new Thickness(1),
+            Background = new SolidColorBrush(keyColor),
+            CornerRadius = new CornerRadius(100),
             Margin = new Thickness(0, 0, 5, 0),
-            Padding = new Thickness(2, 0, 2, 0)
+            Padding = new Thickness(8, 2, 8, 12)
         };
-        TextBlock singleButtonPress = new()
+
+        var singleButtonPress = new TextBlock
         {
-            Foreground = Brushes.Black,
             Text = currentKey,
+            Foreground = Brushes.White,
             FontSize = 20,
             HorizontalAlignment = HorizontalAlignment.Center,
-            Margin = new Thickness(5)
+            VerticalAlignment = VerticalAlignment.Center
         };
 
         keyBorder.Child = singleButtonPress;
-        ButtonsStackPanel.Children.Insert(0, keyBorder);
+        _buttonsStack.Children.Insert(0, keyBorder);
     }
 
     private void RemoveKeyTextComponentLeftovers()
     {
-        if (ButtonsStackPanel.Children.Count == MaxCount)
+        if (_buttonsStack.Children.Count > MaxCount)
         {
-            ButtonsStackPanel.Children.RemoveAt(MaxCount - 1);
+            _buttonsStack.Children.RemoveAt(MaxCount);
         }
     }
 
-    private static void ExitCheckXTimes(string currentKey)
+    private void ExitCheckXTimes(string currentKey)
     {
-        if (currentKey != OnExitButtonKey)
+        if (currentKey != _onExitButtonKey)
         {
-            OnExitButtonKey = currentKey;
-            OnExitButtonCount = 1;
+            _onExitButtonKey = currentKey;
+            _onExitButtonCount = 1;
         }
-        else if (++OnExitButtonCount == TimesPressToExit)
+        else if (++_onExitButtonCount >= TimesPressToExit)
         {
             ExitApplication();
         }
