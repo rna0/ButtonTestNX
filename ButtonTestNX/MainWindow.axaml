@@ -24,9 +24,9 @@
                        HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5">
                         <StackPanel Name="ButtonsStackPanel" Orientation="Horizontal" HorizontalAlignment="Left" />
                 </Panel>
-                <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center"
+                <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" FontSize="50" HorizontalAlignment="Center"
                            VerticalAlignment="Bottom"
-                           Text="______________________________________________________________________"
+                           Text="____________________________"
                            Foreground="{StaticResource UnderlineBlue}"/>
                 <TextBlock Grid.Column="0" Grid.Row="3" FontSize="16" TextWrapping="WrapWithOverflow"
                            HorizontalAlignment="Center" VerticalAlignment="Top"
