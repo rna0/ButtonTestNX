@@ -2,43 +2,45 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Height="450" Width="800" MinHeight="450" MinWidth="800"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Height="450" Width="800" MinHeight="450"
+        MinWidth="800"
         x:Class="ButtonTestNX.MainWindow"
         KeyDown="Window_KeyDown"
         Icon="/Assets/favicon.ico"
         Title="ButtonTestNX"
         FontFamily="avares://ButtonTestNX/Assets/Fonts#Nintendo Switch UI">
-        <Window.Resources>
-                <SolidColorBrush x:Key="KeyBackground" Color="#EBEBEB" />
-                <SolidColorBrush x:Key="TextForeground" Color="#2E2E2E" />
-                <SolidColorBrush x:Key="GreyDetails" Color="#909090" />
-                <SolidColorBrush x:Key="GreyHover" Color="#878787" />
-                <SolidColorBrush x:Key="UnderlineBlue" Color="#3050F1" />
-        </Window.Resources>
-        <Grid Background="{StaticResource KeyBackground}" ColumnDefinitions="*" RowDefinitions="2*,*,6,*,*,*">
-                <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" FontSize="23"
-                           HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                           Text="The symbol for the button you press will appear here."
-                           Foreground="{StaticResource TextForeground}" />
-                <Panel Grid.Column="0" Grid.Row="1" Width="700" ClipToBounds="True"
-                       HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5">
-                        <StackPanel Name="ButtonsStackPanel" Orientation="Horizontal" HorizontalAlignment="Left" />
-                </Panel>
-                <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" FontSize="50" HorizontalAlignment="Center"
-                           VerticalAlignment="Bottom"
-                           Text="____________________________"
-                           Foreground="{StaticResource UnderlineBlue}"/>
-                <TextBlock Grid.Column="0" Grid.Row="3" FontSize="16" TextWrapping="WrapWithOverflow"
-                           HorizontalAlignment="Center" VerticalAlignment="Top"
-                           Width="500" Foreground="{StaticResource GreyDetails}" TextAlignment="Center"
-                           Text="♦ The ⌂ (Home Button), ◎ (Capture Button), POWER Button and SYNC Button cannot be checked" />
-                <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <Button FontSize="20" HorizontalAlignment="Center" BorderBrush="{StaticResource TextForeground}"
-                            Background="Transparent" Content="End" Padding="130 10" Click="Button_Click"/>
-                </StackPanel>
-                <TextBlock Name="PressTimesToExitTextBlock" Grid.Column="0" Grid.Row="5" FontSize="20"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Top"
-                           Foreground="{StaticResource TextForeground}" />
-        </Grid>
+    <Window.Resources>
+        <SolidColorBrush x:Key="KeyBackground" Color="#EBEBEB" />
+        <SolidColorBrush x:Key="TextForeground" Color="#2E2E2E" />
+        <SolidColorBrush x:Key="GreyDetails" Color="#909090" />
+        <SolidColorBrush x:Key="GreyHover" Color="#878787" />
+        <SolidColorBrush x:Key="UnderlineBlue" Color="#3050F1" />
+    </Window.Resources>
+    <Grid Background="{StaticResource KeyBackground}" ColumnDefinitions="*" RowDefinitions="2*,*,6,*,*,*">
+        <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold" FontSize="23"
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                   Text="The symbol for the button you press will appear here."
+                   Foreground="{StaticResource TextForeground}" />
+        <Panel Grid.Column="0" Grid.Row="1" Width="700" ClipToBounds="True"
+               HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5">
+            <StackPanel Name="ButtonsStackPanel" Orientation="Horizontal" HorizontalAlignment="Left" />
+        </Panel>
+        <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold" FontSize="50" HorizontalAlignment="Center"
+                   VerticalAlignment="Bottom"
+                   Text="____________________________"
+                   Foreground="{StaticResource UnderlineBlue}" />
+        <TextBlock Grid.Column="0" Grid.Row="3" FontSize="16" TextWrapping="WrapWithOverflow"
+                   HorizontalAlignment="Center" VerticalAlignment="Top"
+                   Width="500" Foreground="{StaticResource GreyDetails}" TextAlignment="Center"
+                   Text="♦ The ⌂ (Home Button), ◎ (Capture Button), POWER Button and SYNC Button cannot be checked" />
+        <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" BorderThickness="2"
+                    BorderBrush="{StaticResource TextForeground}"
+                    Background="Transparent" Content="End" Padding="130 5 130 15" Click="Button_Click" />
+        </StackPanel>
+        <TextBlock Name="PressTimesToExitTextBlock" Grid.Column="0" Grid.Row="5" FontSize="20"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Foreground="{StaticResource TextForeground}" />
+    </Grid>
 </Window>

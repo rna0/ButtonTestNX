@@ -26,8 +26,6 @@ public partial class MainWindow : Window
 
     // --- UI Element References ---
     private readonly StackPanel _buttonsStack;
-    private readonly TextBlock _pressTimesToExitText;
-    private readonly TextBlock _mainTitleText;
 
     public MainWindow()
     {
@@ -35,10 +33,9 @@ public partial class MainWindow : Window
 
         // --- Find UI Controls by Name ---
         _buttonsStack = this.FindControl<StackPanel>("ButtonsStackPanel")!;
-        _pressTimesToExitText = this.FindControl<TextBlock>("PressTimesToExitTextBlock")!;
-        // The main title is the first child of the root Grid in your XAML.
-        _mainTitleText = (this.Content as Grid)!.Children[0] as TextBlock ?? new TextBlock();
+        var pressTimesToExitText = this.FindControl<TextBlock>("PressTimesToExitTextBlock")!;
 
+        // The main title is the first child of the root Grid in your XAML.
         _playerColors = new List<Color>
         {
             Color.Parse("#2E2E2E"),
@@ -60,7 +57,7 @@ public partial class MainWindow : Window
 
         // --- Set Initial UI State ---
         ProcessInput(0, "Keyboard");
-        _pressTimesToExitText.Text = $"Press any button {TimesPressToExit} times to end the test.";
+        pressTimesToExitText.Text = $"Press any button {TimesPressToExit} times to end the test.";
         _buttonsStack.Children.Clear();
     }
 
