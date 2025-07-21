@@ -24,18 +24,10 @@ public partial class MainWindow : Window
     private string _onExitButtonKey = "";
     private int _onExitButtonCount;
 
-    // --- UI Element References ---
-    private readonly StackPanel _buttonsStack;
-
     public MainWindow()
     {
         InitializeComponent();
-
-        // --- Find UI Controls by Name ---
-        _buttonsStack = this.FindControl<StackPanel>("ButtonsStackPanel")!;
-        var pressTimesToExitText = this.FindControl<TextBlock>("PressTimesToExitTextBlock")!;
-
-        // The main title is the first child of the root Grid in your XAML.
+        
         _playerColors = new List<Color>
         {
             Color.Parse("#2E2E2E"),
@@ -57,8 +49,8 @@ public partial class MainWindow : Window
 
         // --- Set Initial UI State ---
         ProcessInput(0, "Keyboard");
-        pressTimesToExitText.Text = $"Press any button {TimesPressToExit} times to end the test.";
-        _buttonsStack.Children.Clear();
+        PressTimesToExitTextBlock.Text = $"Press any button {TimesPressToExit} times to end the test.";
+        ButtonsStackPanel.Children.Clear();
     }
 
     // Centralized input processing for both Keyboard and Controllers
@@ -117,14 +109,14 @@ public partial class MainWindow : Window
         };
 
         keyBorder.Child = singleButtonPress;
-        _buttonsStack.Children.Insert(0, keyBorder);
+        ButtonsStackPanel.Children.Insert(0, keyBorder);
     }
 
     private void RemoveKeyTextComponentLeftovers()
     {
-        if (_buttonsStack.Children.Count > MaxCount)
+        if (ButtonsStackPanel.Children.Count > MaxCount)
         {
-            _buttonsStack.Children.RemoveAt(MaxCount);
+            ButtonsStackPanel.Children.RemoveAt(MaxCount);
         }
     }
 
