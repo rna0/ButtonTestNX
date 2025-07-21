@@ -1,6 +1,6 @@
 # ButtonTestNX
 
-![psx](https://user-images.githubusercontent.com/47921907/133428480-cde6bd7e-519a-40c0-8669-433205552eda.png)
+![psx](https://github-production-user-asset-6210df.s3.amazonaws.com/47921907/468623592-1f0d0990-2811-4fac-99c8-085ad7b11efa.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250721%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250721T125908Z&X-Amz-Expires=300&X-Amz-Signature=845f6b75e3cf0e06be677b583d2b854531b3259f2d9bafb39eaff1df4beaadf6&X-Amz-SignedHeaders=host)
 
 **ButtonTestNX is a C# Cross-platform Key testing software**
 
@@ -12,6 +12,7 @@ At the moment the following is implemented:
 - Full UI Features
 - Avalonia for Cross-platform UI
 - Full Keyboard detection (Except Tab)
+- Full Gamepad detection (XInput)
 - Button Press 5 times to exit
 
 What is not implemented (but should be...):
@@ -33,15 +34,18 @@ What is not implemented (but should be...):
 
 ## Screenshots
 <p align="center" width="100%">
-    <img width="45%" src="https://user-images.githubusercontent.com/47921907/133436220-982f9b24-93ec-4608-ae4a-ae5886545763.png"> 
-    <img width="45%" src="https://user-images.githubusercontent.com/47921907/133436311-f9201ed4-d59f-4f26-a5f7-71e07e8ace8d.png"> 
+    <img width="45%" src="https://github-production-user-asset-6210df.s3.amazonaws.com/47921907/468639212-f57c9c1f-21bc-4846-b5af-329f6d618b78.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250721%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250721T133438Z&X-Amz-Expires=300&X-Amz-Signature=e41ea583694cbd2897d01a0e414b20454cc8eb455fc4b1824c8d78256e34f596&X-Amz-SignedHeaders=host"> 
+    <img width="45%" src="https://github-production-user-asset-6210df.s3.amazonaws.com/47921907/468640461-c8cec7ff-d74a-47fc-a6c1-fd329842adc4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250721%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250721T133657Z&X-Amz-Expires=300&X-Amz-Signature=a9a966e7465844671044fee23bda85c1770b828369edcbc540cc5a545992d3fa&X-Amz-SignedHeaders=host"> 
 </p>
 
 ## Quick Faq
-- Why does it look like a the Button testing from the nintendo switch?
+- Where did you get the idea for the program?
 
-The Idea for this project came when I the one from the nintendo switch and wondered why there is no one for the PC, don't sue me nintendo...
+  **Answer:** By observing the implementation of the Test Input Devices program for the Nintendo Switch
 
-- Why can't I see my controllers input?
+- What Platforms are supported?
 
-This feature is not implemented yet
+  **Answer:** Windows, Linux and Mac, no other Platforms are planned currently
+- About ARM support?
+
+  **Answer:** The program may work for arm but without a Device to check I can't tell for sure
