@@ -94,9 +94,8 @@ public partial class MainWindow : Window
         var keyBorder = new Border
         {
             Background = new SolidColorBrush(keyColor),
-            CornerRadius = new CornerRadius(100),
-            Margin = new Thickness(0, 0, 5, 0),
-            Padding = new Thickness(8, 2, 8, 12)
+            CornerRadius = new CornerRadius(24),
+            Margin = new Thickness(0, 0, 5, 0)
         };
 
         var singleButtonPress = new TextBlock
@@ -105,7 +104,7 @@ public partial class MainWindow : Window
             Foreground = Brushes.White,
             FontSize = 20,
             HorizontalAlignment = HorizontalAlignment.Center,
-            VerticalAlignment = VerticalAlignment.Center
+            Padding = new Thickness(12, 2, 12, 12)
         };
 
         keyBorder.Child = singleButtonPress;
