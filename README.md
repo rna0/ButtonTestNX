@@ -1,6 +1,6 @@
 # ButtonTestNX
 
-![psx](https://github-production-user-asset-6210df.s3.amazonaws.com/47921907/468623592-1f0d0990-2811-4fac-99c8-085ad7b11efa.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250721%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250721T125908Z&X-Amz-Expires=300&X-Amz-Signature=845f6b75e3cf0e06be677b583d2b854531b3259f2d9bafb39eaff1df4beaadf6&X-Amz-SignedHeaders=host)
+![psx](https://github.com/user-attachments/assets/50c1ee74-d93d-4444-8805-f86dfdf6d3c8)
 
 **ButtonTestNX is a C# Cross-platform Key testing software**
 
@@ -34,8 +34,8 @@ What is not implemented (but should be...):
 
 ## Screenshots
 <p align="center" width="100%">
-    <img width="45%" src="https://github-production-user-asset-6210df.s3.amazonaws.com/47921907/468639212-f57c9c1f-21bc-4846-b5af-329f6d618b78.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250721%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250721T133438Z&X-Amz-Expires=300&X-Amz-Signature=e41ea583694cbd2897d01a0e414b20454cc8eb455fc4b1824c8d78256e34f596&X-Amz-SignedHeaders=host"> 
-    <img width="45%" src="https://github-production-user-asset-6210df.s3.amazonaws.com/47921907/468640461-c8cec7ff-d74a-47fc-a6c1-fd329842adc4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250721%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250721T133657Z&X-Amz-Expires=300&X-Amz-Signature=a9a966e7465844671044fee23bda85c1770b828369edcbc540cc5a545992d3fa&X-Amz-SignedHeaders=host"> 
+    <img width="45%" src="https://github.com/user-attachments/assets/2ed3bbd7-6a6e-437e-a426-692d4a48134a"> 
+    <img width="45%" src="https://github.com/user-attachments/assets/13f50208-2d51-4b47-ac51-647c562fe3b6"> 
 </p>
 
 ## Quick Faq
