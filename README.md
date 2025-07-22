@@ -24,8 +24,9 @@ What is not implemented (but should be...):
 
 - Windows-x86
 - Windows-x64
-- Linux
-- Mac
+- Linux-x64
+- Mac-x64
+- Mac-arm64
 
 ## Using the Program
 
@@ -46,6 +47,3 @@ What is not implemented (but should be...):
 - What Platforms are supported?
 
   **Answer:** Windows, Linux and Mac, no other Platforms are planned currently
-- About ARM support?
-
-  **Answer:** The program may work for arm but without a Device to check I can't tell for sure
