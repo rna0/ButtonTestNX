@@ -1,6 +1,6 @@
 # ButtonTestNX
 
-![psx](https://github.com/user-attachments/assets/50c1ee74-d93d-4444-8805-f86dfdf6d3c8)
+![psx](https://github.com/user-attachments/assets/201fba1c-44fa-49f7-8783-f7fdcefe617b)
 
 **ButtonTestNX is a C# Cross-platform Key testing software**
 
