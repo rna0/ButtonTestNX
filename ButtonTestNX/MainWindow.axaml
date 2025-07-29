@@ -34,7 +34,7 @@
                    Width="500" Foreground="{StaticResource GreyDetails}" TextAlignment="Center"
                    Text="♦ The ⌂ (Home Button), ◎ (Capture Button), POWER Button and SYNC Button cannot be checked" />
         <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Button FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" BorderThickness="2"
+            <Button Focusable="False" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" BorderThickness="2"
                     BorderBrush="{StaticResource TextForeground}"
                     Background="Transparent" Content="End" Padding="130 5 130 15" Click="Button_Click" />
         </StackPanel>

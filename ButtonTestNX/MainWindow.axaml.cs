@@ -19,6 +19,8 @@ public partial class MainWindow : Window
     private readonly ControllerService _controllerService;
     private readonly Random _random = new();
     private readonly IReadOnlyList<Color> _playerColors;
+    
+    private readonly DispatcherTimer _pollingTimer;
 
     private string _onExitButtonKey = "";
     private int _onExitButtonCount;
@@ -26,6 +28,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        Focus();
 
         _playerColors = new List<Color>
         {
@@ -44,22 +47,33 @@ public partial class MainWindow : Window
 
         _controllerService = new ControllerService();
         _controllerService.ControllerInputReceived += OnControllerInput;
-        _controllerService.Start();
+        _controllerService.Initialize();
 
-        ProcessInput(0, "Keyboard");
+        _pollingTimer = new DispatcherTimer
+        {
+            Interval = TimeSpan.FromMilliseconds(1) 
+        };
+        _pollingTimer.Tick += OnTimerTick;
+        _pollingTimer.Start();
+
         PressTimesToExitTextBlock.Text = $"Press any button {TimesPressToExit} times to end the test.";
         ButtonsStackPanel.Children.Clear();
     }
 
+    /// <summary>
+    /// This event handler is called by the timer on every tick.
+    /// </summary>
+    private void OnTimerTick(object? sender, EventArgs e)
+    {
+        _controllerService.PollEvents();
+    }
+
     private void ProcessInput(int playerIndex, string inputKey)
     {
-        // 1. Determine the color for the current input source
         var color = (playerIndex < _playerColors.Count)
             ? _playerColors[playerIndex]
             : Color.FromRgb((byte)_random.Next(256), (byte)_random.Next(256), (byte)_random.Next(256));
 
-        // 2. Check for exit condition
-        if (inputKey == "Keyboard") return;
         ExitCheckXTimes(inputKey);
         CreateKeyTextComponent(inputKey, color);
         RemoveKeyTextComponentLeftovers();
@@ -82,7 +96,9 @@ public partial class MainWindow : Window
 
     protected override void OnClosing(WindowClosingEventArgs e)
     {
-        _controllerService.Stop();
+        _pollingTimer.Stop();
+        _controllerService.Shutdown();
+        
         base.OnClosing(e);
     }
 
