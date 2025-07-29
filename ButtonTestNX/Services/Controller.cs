@@ -80,20 +80,51 @@ public class Controller
                 break;
         }
     }
-    
-    private void UpdateStickState(short value, ref bool negativeState, ref bool positiveState, string negativeMessage, string positiveMessage)
-    {
-        if (value < -JoystickDeadZone) { if (!negativeState) { OnInput?.Invoke(this, negativeMessage); negativeState = true; } }
-        else { negativeState = false; }
 
-        if (value > JoystickDeadZone) { if (!positiveState) { OnInput?.Invoke(this, positiveMessage); positiveState = true; } }
-        else { positiveState = false; }
+    private void UpdateStickState(short value, ref bool negativeState, ref bool positiveState, string negativeMessage,
+        string positiveMessage)
+    {
+        if (value < -JoystickDeadZone)
+        {
+            if (!negativeState)
+            {
+                OnInput?.Invoke(this, negativeMessage);
+                negativeState = true;
+            }
+        }
+        else
+        {
+            negativeState = false;
+        }
+
+        if (value > JoystickDeadZone)
+        {
+            if (!positiveState)
+            {
+                OnInput?.Invoke(this, positiveMessage);
+                positiveState = true;
+            }
+        }
+        else
+        {
+            positiveState = false;
+        }
     }
 
     private void UpdateTriggerState(short value, ref bool state, string message)
     {
-        if (value > JoystickDeadZone) { if (!state) { OnInput?.Invoke(this, message); state = true; } }
-        else { state = false; }
+        if (value > JoystickDeadZone)
+        {
+            if (!state)
+            {
+                OnInput?.Invoke(this, message);
+                state = true;
+            }
+        }
+        else
+        {
+            state = false;
+        }
     }
 
     private static string GetButtonName(SDL_GameControllerButton button) => button switch

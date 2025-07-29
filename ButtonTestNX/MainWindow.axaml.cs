@@ -16,7 +16,6 @@ public partial class MainWindow : Window
     private const int TimesPressToExit = 5;
     private const int MaxCount = 40;
 
-    // --- Services and State (now instance-based) ---
     private readonly ControllerService _controllerService;
     private readonly Random _random = new();
     private readonly IReadOnlyList<Color> _playerColors;
@@ -27,18 +26,18 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        
+
         _playerColors = new List<Color>
         {
-            Color.Parse("#2E2E2E"),
+            Color.Parse("#4A4A4A"),
             Colors.DodgerBlue,
             Colors.Crimson,
             Colors.LimeGreen,
-            Colors.Gold,
+            Colors.Goldenrod,
             Colors.DarkOrchid,
-            Colors.Orange,
-            Colors.Turquoise,
-            Colors.HotPink,
+            Colors.DarkOrange,
+            Colors.DarkTurquoise,
+            Colors.DeepPink,
             Colors.SlateGray,
             Colors.Brown
         };
@@ -47,13 +46,11 @@ public partial class MainWindow : Window
         _controllerService.ControllerInputReceived += OnControllerInput;
         _controllerService.Start();
 
-        // --- Set Initial UI State ---
         ProcessInput(0, "Keyboard");
         PressTimesToExitTextBlock.Text = $"Press any button {TimesPressToExit} times to end the test.";
         ButtonsStackPanel.Children.Clear();
     }
 
-    // Centralized input processing for both Keyboard and Controllers
     private void ProcessInput(int playerIndex, string inputKey)
     {
         // 1. Determine the color for the current input source
