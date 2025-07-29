@@ -22,8 +22,9 @@ public partial class MainWindow : Window
     
     private readonly DispatcherTimer _pollingTimer;
 
-    private string _onExitButtonKey = "";
-    private int _onExitButtonCount;
+    private int _lastExitPlayerIndex = -1;
+    private string _lastExitButtonKey = "";
+    private int _exitButtonCount;
 
     public MainWindow()
     {
@@ -59,10 +60,7 @@ public partial class MainWindow : Window
         PressTimesToExitTextBlock.Text = $"Press any button {TimesPressToExit} times to end the test.";
         ButtonsStackPanel.Children.Clear();
     }
-
-    /// <summary>
-    /// This event handler is called by the timer on every tick.
-    /// </summary>
+    
     private void OnTimerTick(object? sender, EventArgs e)
     {
         _controllerService.PollEvents();
@@ -74,7 +72,8 @@ public partial class MainWindow : Window
             ? _playerColors[playerIndex]
             : Color.FromRgb((byte)_random.Next(256), (byte)_random.Next(256), (byte)_random.Next(256));
 
-        ExitCheckXTimes(inputKey);
+        ExitCheckXTimes(playerIndex, inputKey);
+        
         CreateKeyTextComponent(inputKey, color);
         RemoveKeyTextComponentLeftovers();
     }
@@ -132,14 +131,15 @@ public partial class MainWindow : Window
         }
     }
 
-    private void ExitCheckXTimes(string currentKey)
+    private void ExitCheckXTimes(int playerIndex, string currentKey)
     {
-        if (currentKey != _onExitButtonKey)
+        if (playerIndex != _lastExitPlayerIndex || currentKey != _lastExitButtonKey)
         {
-            _onExitButtonKey = currentKey;
-            _onExitButtonCount = 1;
+            _lastExitPlayerIndex = playerIndex;
+            _lastExitButtonKey = currentKey;
+            _exitButtonCount = 1;
         }
-        else if (++_onExitButtonCount >= TimesPressToExit)
+        else if (++_exitButtonCount >= TimesPressToExit)
         {
             ExitApplication();
         }

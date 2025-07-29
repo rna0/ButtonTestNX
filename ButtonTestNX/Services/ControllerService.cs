@@ -92,7 +92,7 @@ public class ControllerService
             }
 
             newController.OnInput += OnControllerInput;
-            _controllers[playerSlotIndex] = newController; // Assign the new controller to the slot.
+            _controllers[playerSlotIndex] = newController;
             Console.WriteLine($"[+] Controller {playerIndexForUi} connected: '{newController.Name}' (Instance ID: {newController.JoystickInstanceId})");
         }
         catch (Exception ex)
